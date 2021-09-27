@@ -132,7 +132,6 @@ int Delete(int array[], int arraySize)
     }
     else
     {
-        //i=arraySize;i>=position;i--
         //shift the next value to previous...
         for(i=position ; i<=arraySize; i++)
         {
@@ -149,8 +148,23 @@ int Delete(int array[], int arraySize)
 }
 int Search(int array[], int arraySize)
 {
-printf("Successfull to call function Search\n");
-
+ //Leniar search (Since we dont know array is sorted or not, we can go for a leniar search)
+ //get element
+  int i,element, count ;
+    printf("Enter element which you want to search in the array: ");
+    scanf("%d", &element);
+    for(i=0; i<arraySize; i++)
+    {
+        if(array[i]==element)
+        {
+            count++;
+            printf("The element %d is in the index %d\n", element, i);
+        }
+    }
+    printf("There are %d match found on the array\n", count);
+   
+ //iterate throw whole array and see if the element match on array;
+ //if multiple element , shows all index , or shows one... 
 }
 int Sort_Bubble(int array[], int arraySize)
 {
