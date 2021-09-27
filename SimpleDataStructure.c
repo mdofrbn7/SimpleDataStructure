@@ -59,6 +59,7 @@ int main()
        case 7:
            //this case call MultiplicationOfTwoMatrix
            break;
+       default :
    }
 
    return 0;
