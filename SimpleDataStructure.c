@@ -168,9 +168,38 @@ int Search(int array[], int arraySize)
 }
 int Sort_Bubble(int array[], int arraySize)
 {
-printf("Successfull to call function Sort_Bubble\n");
+    int i,j,temp;
+    //loop1 -loop through array..
+    //arraySize - 1 , because, If the whole array sorted, the last element autometic sorted.
+    for(i=0; i < arraySize-1; i++)
+    {
+        //loop again to check the whole array
+        for (j=0; j < arraySize-i-1 ; j++)
+        {
+            //check if the previous value is greter then next
+            //for descending order, just change sign '>' to '<'
+            //this loop is for ascending order
+            if(array[j]> array[j+1])
+            {
+                //now just have to  swap the element
+                temp = array[j]; 
+                array[j] = array[j+1];
+                array[j+1] = temp;   
+            }
 
+        }
+        
+    }
+    //print the modified array
+
+    for (i = 0 ; i<arraySize ; i++)
+    {
+        printf("%d, ", array[i]);
+    }
+    printf("\n");
+ 
 }
+
 int AdditionOfTwoMatrix(int matrixOne[3][3], int matrixTwo[3][3])
 {
 printf("Successfull to call function AdditionOfTwoMatrix\n");
