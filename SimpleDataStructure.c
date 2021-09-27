@@ -119,8 +119,33 @@ int Insert(int array[], int arraySize)
 }
 int Delete(int array[], int arraySize)
 {
-
-printf("Successfull to call function Delete\n");
+    //get the insert position and element
+    int i, position;
+    printf("Enter position where you want to delete: ");
+    scanf("%d", &position);
+    //decrease array size by 1
+    arraySize--;
+    //check if the position is valid 
+    if( position<0 ||  position>arraySize )
+    {
+        printf("Please Enter a valid Position");
+    }
+    else
+    {
+        //i=arraySize;i>=position;i--
+        //shift the next value to previous...
+        for(i=position ; i<=arraySize; i++)
+        {
+            array[i-1]= array[i];
+        }
+    }
+ //print new modified array
+    for (i = 0 ; i<arraySize ; i++)
+    {
+        printf("%d, ", array[i]);
+    }
+    printf("\n");
+    
 }
 int Search(int array[], int arraySize)
 {
