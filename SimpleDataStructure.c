@@ -1,9 +1,9 @@
 #include<stdio.h>
 
-int Insert(int array[]);
-int Delete(int array[]);
-int Search(int array[]);
-int Sort_Bubble(int array[]);
+int Insert(int array[],int arraySize);
+int Delete(int array[],int arraySize);
+int Search(int array[],int arraySize);
+int Sort_Bubble(int array[],int arraySize);
 int AdditionOfTwoMatrix(int matrixOne[3][3], int matrixTwo[3][3]);
 int MultiplicationOfTwoMatrix(int matrixOne[3][3], int matrixTwo[3][3]);
 //I dont understand this one.
@@ -43,19 +43,19 @@ int main()
         {
             case 1:
                 //this case call Insert function 
-                Insert(array);
+                Insert(array,arraySize);
                 break;
             case 2:
                 //this case call Delete function
-                Delete(array);
+                Delete(array,arraySize);
                 break;
             case 3:
                 //this case call Sort_Bubble function
-                Sort_Bubble(array);
+                Sort_Bubble(array,arraySize);
                 break;
             case 4:
                 //this case call Search function
-                Search(array);
+                Search(array,arraySize);
                 break;
             default :
                 printf("Enter only given numbers..\n");
@@ -85,21 +85,49 @@ int main()
 
 }
 
-int Insert(int array[])
+int Insert(int array[], int arraySize)
 {
-printf("Successfull to call function Insert\n");
+    //get the insert position and element
+    int i, position, element;
+    printf("Enter position where you want to insert: ");
+    scanf("%d", &position);
+    printf("Enter element: ");
+    scanf("%d", &element);
+    //increse arraySize by 1 
+    arraySize++;
+    //check if the position is valid 
+    if( position<0 ||  position>arraySize )
+    {
+        printf("Please Enter a valid Position");
+    }
+    else
+    {
+        //Shift array element one by one from last element
+        for(i=arraySize;i>=position;i--)
+        {
+            array[i]=  array[i-1];
+        }
+        //now the positon has null or garbage value, so we can asign value on the position
+        array[position-1]= element;
+    }
+    //print new modified array
+    for (i = 0 ; i<arraySize ; i++)
+    {
+        printf("%d, ", array[i]);
+    }
+    printf("\n");
 }
-int Delete(int array[])
+int Delete(int array[], int arraySize)
 {
 
 printf("Successfull to call function Delete\n");
 }
-int Search(int array[])
+int Search(int array[], int arraySize)
 {
 printf("Successfull to call function Search\n");
 
 }
-int Sort_Bubble(int array[])
+int Sort_Bubble(int array[], int arraySize)
 {
 printf("Successfull to call function Sort_Bubble\n");
 
